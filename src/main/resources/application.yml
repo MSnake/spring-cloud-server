@@ -1,0 +1,32 @@
+server:
+  port: 8888
+  servlet:
+    contextPath: /conf
+
+spring:
+  application:
+    name: config-server
+  # configserver git configuration
+  cloud:
+    config:
+
+      server:
+        git:
+          # Адрес git репозитория
+          uri: https://github.com/MSnake/spring-cloud-configs.git
+          # учетная запись git, пароль
+          username: "username"
+          password: "password"
+          clone-on-start: true
+          #Используемая ветка git
+          default-label: main
+
+# Для подключения к репозиторию по ssh-ключу
+#spring:
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri:  ${GIT_URL}
+#          ignore-local-ssh-settings: true
+#          private-key: ${SSH_KEY}
